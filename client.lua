@@ -5,7 +5,6 @@
 Config              = {}
 
 Config.Zones = {
-
 	Vehicle = {
 		Pos   = {x = 538.17, y = 101.61, z = 95.63}
 	},
@@ -79,10 +78,10 @@ end)
 --Spawn Van
 function PullOutVehicle()
     if ownsVan == true then
-        QBCore.Functions.Notify("You already have a van! Go and collect it or kripya aapne kaaam ka khatam kare.", "error")
+        QBCore.Functions.Notify("U hebt uw voertuig al ontvangen. Maak eerst je job af!", "error")
     elseif ownsVan == false then
         coords = Config.Zones.Spawn.Pos
-        QBCore.Functions.SpawnVehicle('blazer3', function(veh)
+        QBCore.Functions.SpawnVehicle('faggio2', function(veh)
             SetVehicleNumberPlateText(veh, "PIZZA"..tostring(math.random(1000, 9999)))
             SetEntityHeading(veh, coords.h)
             exports['LegacyFuel']:SetFuel(veh, 100.0)
@@ -113,7 +112,7 @@ Citizen.CreateThread(function()
                     ["y"] = Config.Zones.Vehicle.Pos.y,
                     ["z"] = Config.Zones.Vehicle.Pos.z + 1
                 }
-                DrawText3Ds(GaragePos["x"],GaragePos["y"],GaragePos["z"], "Press [~g~G~s~] to start work as a Pizza Boy")
+                DrawText3Ds(GaragePos["x"],GaragePos["y"],GaragePos["z"], "Duw op [~g~G~s~] om te starten als Pizza Boy")
                 if dist <= 3.0 then
                     if IsControlJustReleased(0, 47) then
                         PullOutVehicle()
@@ -131,7 +130,7 @@ end)
 function DrawTarget()
     local RandomPoint = math.random(1, 21)
     if DeliveriesCount == 4 then
-        QBCore.Functions.Notify("All Pizzas have been delivered","success")
+        QBCore.Functions.Notify("Alle pizza's zijn afgeleverd","success")
         RemoveCancelBlip()
         SetBlipRoute(BlipSell, false)
         AddFinnishBlip()
@@ -140,131 +139,131 @@ function DrawTarget()
 				yyy = nil
 				zzz = nil
     else
-      local pizza = 4 - DeliveriesCount
-      if pizza == 1 then
-        QBCore.Functions.Notify("You have 1 pizza","success")
-      else
-        if pizza == 4 then
-          pizza = 'Four'
-        elseif pizza == 3 then
-          pizza = 'Three'
-        elseif pizza == 2 then
-          pizza = 'Two'
-        end
-        QBCore.Functions.Notify("You have "..pizza.." pizzas","success")
-      end
-        if LastGoal == RandomPoint then
-            DrawTarget()
+        local pizza = 4 - DeliveriesCount
+        if pizza == 1 then
+            QBCore.Functions.Notify("You have 1 pizza","success")
         else
-            if RandomPoint == 1 then
-								xxx =3.45
-								yyy =36.74
-								zzz =71.53
-                LastGoal = 1
-            elseif RandomPoint == 2 then
-								xxx =-273.58
-								yyy =28.33
-								zzz =54.75
-                LastGoal = 2
-            elseif RandomPoint == 3 then
-								xxx =-345.05
-								yyy =18.23
-								zzz =47.85
-                LastGoal = 3
-            elseif RandomPoint == 4 then
-								xxx =-549.89
-								yyy =37.7
-								zzz =43.6
-                LastGoal = 4
-            elseif RandomPoint == 5 then
-								xxx =-842.22
-								yyy =-25.07
-								zzz =40.39
-                LastGoal = 5
-            elseif RandomPoint == 6 then
-								xxx =-902.37
-								yyy =191.56
-								zzz =69.44
-                LastGoal = 6
-            elseif RandomPoint == 7 then
-								xxx =-1116.81
-								yyy =304.54
-								zzz =66.52
-                LastGoal = 7
-            elseif RandomPoint == 8 then
-								xxx =-637.01
-								yyy =180.39
-								zzz =61.75
-                LastGoal = 8
-            elseif RandomPoint == 9 then
-								xxx =-1905.66
-								yyy =252.95
-								zzz =86.45
-                LastGoal = 9
-            elseif RandomPoint == 10 then
-								xxx =-1961.23
-								yyy =212.01
-								zzz =86.8
-                LastGoal = 10
-            elseif RandomPoint == 11 then -- zrobione
-								xxx =-14447.51
-								yyy =-537.6
-								zzz =34.74
-                LastGoal = 11
-            elseif RandomPoint == 12 then
-								xxx =126.678
-								yyy =-1929.798
-								zzz =21.382
-                LastGoal = 12
-            elseif RandomPoint == 13 then
-								xxx =-5.0513
-								yyy =-1872.062
-								zzz =24.151
-                LastGoal = 13
-            elseif RandomPoint == 14 then
-								xxx =-69.846     
-								yyy =-1619.476
-								zzz =31.446
-                LastGoal = 14
-            elseif RandomPoint == 15 then
-								xxx =-27.885
-								yyy =-1103.904
-								zzz =26.422
-                LastGoal = 15
-            elseif RandomPoint == 16 then
-								xxx =344.731
-								yyy =-205.027
-								zzz =58.019
-                LastGoal = 16
-            elseif RandomPoint == 17 then
-								xxx =340.956
-								yyy =-214.876
-								zzz =58.019
-                LastGoal = 17
-            elseif RandomPoint == 18 then
-								xxx =337.132
-								yyy =-224.712
-								zzz =58.019
-                LastGoal = 18
-            elseif RandomPoint == 19 then
-								xxx =331.373
-								yyy =-225.865
-								zzz =58.019
-                LastGoal = 19
-            elseif RandomPoint == 20 then
-								xxx =337.158
-								yyy =-224.729
-								zzz =54.221
-                LastGoal = 20
-            elseif RandomPoint == 21 then
-								xxx =-386.907
-								yyy =504.108
-								zzz =120.412
-                LastGoal = 21
-            end
-		    AddObjBlip(TargetPos)
-		    QBCore.Functions.Notify("Take the Pizza to the customer","success")
+        if pizza == 4 then
+            pizza = 'vier'
+        elseif pizza == 3 then
+            pizza = 'drie'
+        elseif pizza == 2 then
+            pizza = 'twee'
         end
+        QBCore.Functions.Notify("U hebt "..pizza.." pizzadozen meegekregen","success")
+    end
+    if LastGoal == RandomPoint then
+        DrawTarget()
+    else
+        if RandomPoint == 1 then
+            xxx =3.45
+            yyy =36.74
+            zzz =71.53
+            LastGoal = 1
+        elseif RandomPoint == 2 then
+            xxx =-273.58
+            yyy =28.33
+            zzz =54.75
+            LastGoal = 2
+        elseif RandomPoint == 3 then
+            xxx =-345.05
+            yyy =18.23
+            zzz =47.85
+            LastGoal = 3
+        elseif RandomPoint == 4 then
+            xxx =-549.89
+            yyy =37.7
+            zzz =43.6
+            LastGoal = 4
+        elseif RandomPoint == 5 then
+            xxx =-842.22
+            yyy =-25.07
+            zzz =40.39
+            LastGoal = 5
+        elseif RandomPoint == 6 then
+            xxx =-902.37
+            yyy =191.56
+            zzz =69.44
+            LastGoal = 6
+        elseif RandomPoint == 7 then
+            xxx =-1116.81
+            yyy =304.54
+            zzz =66.52
+            LastGoal = 7
+        elseif RandomPoint == 8 then
+            xxx =-634.74
+            yyy =209.13
+            zzz =74.25
+            LastGoal = 8
+        elseif RandomPoint == 9 then
+            xxx =-1905.66
+            yyy =252.95
+            zzz =86.45
+            LastGoal = 9
+        elseif RandomPoint == 10 then
+            xxx =-1961.23
+            yyy =212.01
+            zzz =86.8
+            LastGoal = 10
+        elseif RandomPoint == 11 then -- zrobione
+            xxx =-14447.51
+            yyy =-537.6
+            zzz =34.74
+            LastGoal = 11
+        elseif RandomPoint == 12 then
+            xxx =126.678
+            yyy =-1929.798
+            zzz =21.382
+            LastGoal = 12
+        elseif RandomPoint == 13 then
+            xxx =-5.0513
+            yyy =-1872.062
+            zzz =24.151
+            LastGoal = 13
+        elseif RandomPoint == 14 then
+            xxx =-69.846     
+            yyy =-1619.476
+            zzz =31.446
+            LastGoal = 14
+        elseif RandomPoint == 15 then
+            xxx =-27.885
+            yyy =-1103.904
+            zzz =26.422
+            LastGoal = 15
+        elseif RandomPoint == 16 then
+            xxx =344.731
+            yyy =-205.027
+            zzz =58.019
+            LastGoal = 16
+        elseif RandomPoint == 17 then
+            xxx =340.956
+            yyy =-214.876
+            zzz =58.019
+            LastGoal = 17
+        elseif RandomPoint == 18 then
+            xxx =337.132
+            yyy =-224.712
+            zzz =58.019
+            LastGoal = 18
+        elseif RandomPoint == 19 then
+            xxx =331.373
+            yyy =-225.865
+            zzz =58.019
+            LastGoal = 19
+        elseif RandomPoint == 20 then
+            xxx =337.158
+            yyy =-224.729
+            zzz =54.221
+            LastGoal = 20
+        elseif RandomPoint == 21 then
+            xxx =-386.907
+            yyy =504.108
+            zzz =120.412
+            LastGoal = 21
+        end
+        AddObjBlip(TargetPos)
+        QBCore.Functions.Notify("Vervoer de pizza naar de klanten","success")
+    end
     end
 end
 
@@ -272,31 +271,31 @@ end
 -- Creating Blips --
 --------------------
 
--- Blip celu podrózy
+-- Blip Je bestemming
 function AddObjBlip(TargetPos)
     Blipy['obj'] = AddBlipForCoord(xxx, yyy, zzz)
     SetBlipRoute(Blipy['obj'], true)
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString('Customer')
+	AddTextComponentString('Klant')
 	EndTextCommandSetBlipName(Blipy['obj'])
 end
 
--- Blip anulowania pracy
+-- Blip een baan annuleren
 function AddCancelBlip()
     Blipy['cancel'] = AddBlipForCoord(558.52, 121.27, 97.37)
-		SetBlipColour(Blipy['cancel'], 59)
+	SetBlipColour(Blipy['cancel'], 59)
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString('cancel orders')
+	AddTextComponentString('Annuleer order')
 	EndTextCommandSetBlipName(Blipy['cancel'])
 end
 
--- Blip zakonczenia pracy
+-- Blip beëindiging van het werk
 function AddFinnishBlip()
     Blipy['end'] = AddBlipForCoord(571.25, 116.78, 97.36)
-		SetBlipColour(Blipy['end'], 2)
+	SetBlipColour(Blipy['end'], 2)
     SetBlipRoute(Blipy['end'], true)
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString('finnish job')
+	AddTextComponentString('Job stoppen')
 	EndTextCommandSetBlipName(Blipy['end'])
 end
 
@@ -334,15 +333,15 @@ Citizen.CreateThread(function()
                 ["y"] = yyy,
                 ["z"] = zzz
             }
-            DrawText3Ds(DeliveryPoint["x"],DeliveryPoint["y"],DeliveryPoint["z"], "Take ~y~Pizza~s~ from ~b~blazer3~s~!")
+            DrawText3Ds(DeliveryPoint["x"],DeliveryPoint["y"],DeliveryPoint["z"], "Neem de ~y~pizza~s~ uit de ~b~brommer~s~!")
             local Vehicle = GetClosestVehicle(pos, 6.0, 0, 70)
-            if IsVehicleModel(Vehicle, GetHashKey('blazer3')) then
+            if IsVehicleModel(Vehicle, GetHashKey('faggio2')) then
                 local VehPos = GetEntityCoords(Vehicle)
-								local distance = GetDistanceBetweenCoords(pos, VehPos, true)
-                DrawText3Ds(VehPos.x,VehPos.y,VehPos.z, "Press [~g~G~s~] to pull out ~y~Pizza")
-								if dist >= 4 and distance <= 5 then
-                	                NearVan = true
-								end
+				local distance = GetDistanceBetweenCoords(pos, VehPos, true)
+                DrawText3Ds(VehPos.x,VehPos.y,VehPos.z, "Duw op [~g~G~s~] om een ~y~pizza~s~ uit te halen")
+                if dist >= 4 and distance <= 5 then
+                    NearVan = true
+                end
             end
         elseif dist <= 25 and HasPizza and Hired then
             local DeliveryPoint = {
@@ -350,7 +349,7 @@ Citizen.CreateThread(function()
                 ["y"] = yyy,
                 ["z"] = zzz
             }
-            DrawText3Ds(DeliveryPoint["x"],DeliveryPoint["y"],DeliveryPoint["z"], "Press [~g~G~s~] to deliver ~y~Pizza")
+            DrawText3Ds(DeliveryPoint["x"],DeliveryPoint["y"],DeliveryPoint["z"], "Duw op [~g~G~s~] om de ~y~pizza~s~ te leveren")
             if dist <= 3 then
                 if IsControlJustReleased(0, 47) then
                     TakePizza()
@@ -446,10 +445,10 @@ Citizen.CreateThread(function()
                         ["y"] = 116.78,
                         ["z"] = 97.36
                     }
-                    DrawText3Ds(endPoint["x"],endPoint["y"],endPoint["z"], "Press [~g~G~s~] to ~r~complete~s~ work")
+                    DrawText3Ds(endPoint["x"],endPoint["y"],endPoint["z"], "Duw op [~g~G~s~] om het werk te ~r~voltooien")
                     if DistanceFromEndZone <= 7 then
                         if IsControlJustReleased(0, 47) then
-                            QBCore.Functions.Notify("The work is finished! Rest a while, the next orders are already waiting!", "success")
+                            QBCore.Functions.Notify("Het werk is klaar! Rust even uit, de volgende bestellingen wachten al!", "success")
                             EndOfWork()
                         end
                     end
@@ -457,14 +456,14 @@ Citizen.CreateThread(function()
             else
                 if DistanceFromCancelZone <= 2.5 then
                     local cancel = { --x = 558.52, y = 121.27, z = 97.37
-                        ["x"] = 558.52,
-                        ["y"] = 121.27,
-                        ["z"] = 97.37
+                        ["x"] = 571.25,
+                        ["y"] = 116.78,
+                        ["z"] = 97.36
                     }
-                    DrawText3Ds(cancel["x"],cancel["y"],cancel["z"], "Press [~g~G~s~] to ~r~cancel~s~ orders")
+                    DrawText3Ds(cancel["x"],cancel["y"],cancel["z"], "Duw op [~g~G~s~] om de job te ~r~stoppen")
                     if DistanceFromCancelZone <= 7 then
                         if IsControlJustReleased(0, 47) then
-                            QBCore.Functions.Notify("Orders Canceled!", "error")
+                            QBCore.Functions.Notify("Bestellingen geleverd!", "error")
 							EndOfWork()
                         end
                     end
@@ -479,7 +478,7 @@ function EndOfWork()
     local ped = GetPlayerPed(-1)
     if IsPedInAnyVehicle(ped, false) then
         local Van = GetVehiclePedIsIn(ped, false)
-        if IsVehicleModel(Van, GetHashKey('blazer3')) then
+        if IsVehicleModel(Van, GetHashKey('faggio2')) then
             QBCore.Functions.DeleteVehicle(Van)
             if Delivered == true then
                 TriggerServerEvent("RoutePizza:ReturnDeposit", 'end')
@@ -498,8 +497,8 @@ function EndOfWork()
             ownsVan = false
             Delivered = false
         else
-            QBCore.Functions.Notify("You must return to pizza blazer3!", "error")
-            QBCore.Functions.Notify("If you lost the blazer3 cancel the job on foot", "error")
+            QBCore.Functions.Notify("Je moet terug gaan naar je pizza brommer!", "error")
+            QBCore.Functions.Notify("Als je de pizza brommer kwijt bent, annuleer de job te voet", "error")
         end
     else
         InService = false
