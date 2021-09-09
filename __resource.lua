@@ -1,3 +1,5 @@
+fx_version 'adamant'
+game 'gta5'
 
 description 'Pizza Job'
 
@@ -8,4 +10,3 @@ client_scripts {
 server_scripts { 
 "server.lua"
 }
-client_script "@Anticheat/acloader.lua"
