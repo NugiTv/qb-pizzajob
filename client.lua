@@ -20,7 +20,8 @@ Config.Zones = {
 -- QBUS --
 ---------
 
-QBCore = nil
+local QBCore = exports['qb-core']:GetCoreObject()
+
 PlayerData = {}
 TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
 
